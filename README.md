@@ -6,7 +6,6 @@ Yes — the main issue is that the README should feel like a **real product page
 
 # ShopStack
 
- \<p align="center"\> \<img src="https://img.shields.io/badge/React-2026-blue?style=for-the-badge&logo=react" alt="React" /\> \<img src="https://img.shields.io/badge/Node.js-20-green?style=for-the-badge&logo=node.js" alt="Node.js" /\> \<img src="https://img.shields.io/badge/PostgreSQL-16-316192?style=for-the-badge&logo=postgresql" alt="PostgreSQL" /\> \<img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License" /\> \</p\> \<p align="center"\> \<strong\>A modern full-stack e-commerce platform.\</strong\> \</p\> \<p align="center"\> Shop products, manage your cart, place orders, and manage your store from one powerful platform. \</p\> \<p align="center"\> \<a href="#features"\>Features\</a\> · \<a href="#screenshots"\>Screenshots\</a\> · \<a href="#tech-stack"\>Tech Stack\</a\> · \<a href="#getting-started"\>Getting Started\</a\> · \<a href="#api"\>API\</a\> \</p\>
 ---
 
  ## About
