@@ -1,130 +1,251 @@
 🛒 ShopStack
+Modern e-commerce, built for the web.
 
-A modern full-stack e-commerce platform built for managing products, shopping carts, orders, customers, and store administration.
+ShopStack is a full-stack e-commerce platform where users can discover products, manage their cart, place orders, and track purchases — while store admins can manage products, inventory, customers, and orders from a dedicated dashboard.
 
-Status: 🚧 In Development
+<p align="center"> <strong>React</strong> · <strong>Node.js</strong> · <strong>Express</strong> · <strong>PostgreSQL</strong> </p> <p align="center"> <a href="#-features">Features</a> • <a href="#-screenshots">Screenshots</a> • <a href="#-tech-stack">Tech Stack</a> • <a href="#-getting-started">Getting Started</a> • <a href="#-roadmap">Roadmap</a> </p>
+✨ Overview
 
-✨ Features
-Customer
+ShopStack was built to explore how a real-world e-commerce application works from end to end.
 
-User registration and authentication
+The project covers everything from browsing products and managing a shopping cart to authentication, order processing, inventory management, and administration.
+
+                    SHOPSTACK
+                        │
+          ┌─────────────┴─────────────┐
+          │                           │
+       CUSTOMER                     ADMIN
+          │                           │
+    ┌─────┴─────┐             ┌───────┴───────┐
+    │           │             │               │
+ Products     Cart        Products         Orders
+    │           │             │               │
+    └─────┬─────┘             └───────┬───────┘
+          │                           │
+          └───────────┬───────────────┘
+                      │
+                 REST API
+                      │
+                 PostgreSQL
+
+🚀 Features
+🛍️ Shopping
 
 Browse products
 
 Search and filter products
 
-Product categories
-
-Product details and reviews
+View detailed product information
 
 Add products to cart
 
-Update cart quantities
+Update quantities
 
-Remove products from cart
+Remove items
 
-Checkout flow
+Calculate cart totals
 
-Order history
+Responsive shopping experience
 
-User profile
+👤 Authentication
 
-Admin
+User registration
 
-Admin dashboard
+Secure login
 
-Product management
+JWT-based authentication
 
-Category management
-
-Order management
-
-User management
-
-Inventory tracking
-
-Sales statistics
-
-Technical
-
-REST API
-
-JWT authentication
+Protected routes
 
 Role-based authorization
 
-PostgreSQL database
+Customer and admin accounts
 
-Responsive UI
+📦 Orders
 
-API error handling
+Checkout workflow
 
-Automated tests
+Create orders
 
-Docker development environment
+View order history
+
+View individual order details
+
+Track order status
+
+Server-side order validation
+
+🛠️ Admin Dashboard
+
+Product management
+
+Inventory management
+
+Order management
+
+Customer management
+
+Sales overview
+
+Dashboard statistics
+
+📸 Screenshots
+
+Screenshots will be added as the UI is completed.
+
+Home
+┌─────────────────────────────────────────────────────┐
+│  🛒 ShopStack     Shop    Categories    Search  🛍️ │
+├─────────────────────────────────────────────────────┤
+│                                                     │
+│       Shop smarter.                                 │
+│       Live better.                                  │
+│                                                     │
+│       Discover products you'll love.                │
+│                                                     │
+│              [ Explore Products ]                   │
+│                                                     │
+└─────────────────────────────────────────────────────┘
+
+Product Catalog
+┌─────────────────────────────────────────────────────┐
+│ Products                              🔍 Search... │
+├──────────────┬──────────────────────────────────────┤
+│ Categories   │                                      │
+│              │   ┌──────┐ ┌──────┐ ┌──────┐       │
+│ Electronics  │   │      │ │      │ │      │       │
+│ Fashion      │   │ 📱   │ │ 💻   │ │ 🎧   │       │
+│ Home         │   │      │ │      │ │      │       │
+│ Accessories  │   └──────┘ └──────┘ └──────┘       │
+│              │                                      │
+└──────────────┴──────────────────────────────────────┘
+
+Admin Dashboard
+┌────────────┬────────────────────────────────────────┐
+│ ShopStack  │  Dashboard                             │
+│            │                                        │
+│ Dashboard  │  Revenue       Orders      Customers  │
+│ Products   │  ₹1.24L        248         1,842      │
+│ Orders     │                                        │
+│ Users      │  ───────── Sales Overview ─────────   │
+│            │                                        │
+│ Settings   │       ╱╲      ╱╲                      │
+│            │   ╀──╯  ╰────╯  ╰──                  │
+└────────────┴────────────────────────────────────────┘
 
 🧰 Tech Stack
-Frontend
+Layer	Technology
+Frontend	React + Vite
+Styling	Tailwind CSS
+Routing	React Router
+API	Node.js + Express
+Database	PostgreSQL
+Authentication	JWT + bcrypt
+HTTP Client	Axios
+Testing	Jest + Supertest
+Containers	Docker
+Version Control	Git
+🏗️ Project Structure
+shopstack/
+│
+├── client/                 # Customer storefront
+│   ├── components/
+│   ├── pages/
+│   ├── context/
+│   ├── hooks/
+│   └── services/
+│
+├── server/                 # REST API
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   └── utils/
+│
+├── admin/                  # Admin dashboard
+│   ├── components/
+│   └── pages/
+│
+├── docs/                   # Project documentation
+│
+├── docker-compose.yml
+├── .env.example
+└── README.md
 
-React
+🔐 Authentication Flow
 
-Vite
+ShopStack uses JWT authentication.
 
-Tailwind CSS
+User
+ │
+ │ Login
+ ▼
+API
+ │
+ ├── Validate credentials
+ │
+ ├── Verify password
+ │
+ └── Generate JWT
+          │
+          ▼
+       Client
+          │
+          ▼
+   Protected Requests
+          │
+          ▼
+    Auth Middleware
+          │
+          ▼
+       API Route
 
-React Router
 
-Axios
+Passwords are never stored in plain text and protected routes require valid authentication.
 
-Backend
+📡 API
+Authentication
+POST /api/auth/register
+POST /api/auth/login
+GET  /api/auth/me
 
-Node.js
+Products
+GET    /api/products
+GET    /api/products/:id
+POST   /api/products
+PUT    /api/products/:id
+DELETE /api/products/:id
 
-Express
+Cart
+GET    /api/cart
+POST   /api/cart
+PUT    /api/cart/:id
+DELETE /api/cart/:id
 
-PostgreSQL
+Orders
+POST /api/orders
+GET  /api/orders
+GET  /api/orders/:id
+PUT  /api/orders/:id/status
 
-JWT
+⚡ Getting Started
+Prerequisites
 
-bcrypt
+Make sure you have installed:
 
-Testing
+Node.js 18+
 
-Jest
+npm
 
-Supertest
-
-Development
-
-Docker
+PostgreSQL 15+
 
 Git
 
-GitHub Actions
+Docker (optional)
 
-📸 Application
-Homepage
-┌──────────────────────────────────────────────────────────┐
-│ ShopStack     Products  Categories       🔍   🛒  Login │
-├──────────────────────────────────────────────────────────┤
-│                                                          │
-│              Everything you need.                        │
-│              All in one place.                            │
-│                                                          │
-│                 [ Shop Now ]                             │
-│                                                          │
-├──────────────────────────────────────────────────────────┤
-│ Featured Products                                        │
-│                                                          │
-│  ┌────────┐   ┌────────┐   ┌────────┐   ┌────────┐      │
-│  │ Laptop │   │ Headset│   │ Watch  │   │ Camera │      │
-│  │ ₹79,999│   │ ₹4,999 │   │ ₹8,999 │   │₹24,999 │      │
-│  └────────┘   └────────┘   └────────┘   └────────┘      │
-└──────────────────────────────────────────────────────────┘
-
-🚀 Getting Started
-1. Clone the repository
+1. Clone
 git clone https://github.com/example/shopstack.git
+
 cd shopstack
 
 2. Install dependencies
@@ -134,270 +255,175 @@ npm install
 cd ../client
 npm install
 
-3. Configure environment variables
+cd ../admin
+npm install
 
-Create a .env file inside server/.
+3. Configure environment
+
+Create .env files using the provided examples.
+
+cp server/.env.example server/.env
+
+
+Example:
 
 PORT=5000
 DATABASE_URL=postgresql://postgres:password@localhost:5432/shopstack
 JWT_SECRET=your_secret_key
-NODE_ENV=development
 
-
-Create a .env file inside client/.
-
-VITE_API_URL=http://localhost:5000/api
-
-4. Start PostgreSQL
-
-Using Docker:
-
-docker compose up -d postgres
-
-5. Seed the database
+4. Start the backend
 cd server
-npm run seed
-
-6. Start the backend
 npm run dev
 
-7. Start the frontend
-cd ../client
+5. Start the frontend
+
+In another terminal:
+
+cd client
 npm run dev
 
+6. Open the application
+Frontend → http://localhost:5173
+API      → http://localhost:5000
 
-The application will be available at:
+🐳 Run with Docker
 
-Frontend: http://localhost:5173
-Backend:  http://localhost:5000
-
-🔐 Authentication
-
-ShopStack uses JWT-based authentication.
-
-Example login request:
-
-POST /api/auth/login
-Content-Type: application/json
-
-{
-  "email": "demo@shopstack.dev",
-  "password": "password123"
-}
-
-
-Example response:
-
-{
-  "user": {
-    "id": "user_123",
-    "name": "Demo User",
-    "email": "demo@shopstack.dev",
-    "role": "customer"
-  },
-  "token": "jwt-token"
-}
-
-📡 API
-Authentication
-Method	Endpoint	Description
-POST	/api/auth/register	Register user
-POST	/api/auth/login	Login
-GET	/api/auth/me	Get current user
-Products
-Method	Endpoint	Description
-GET	/api/products	Get products
-GET	/api/products/:id	Get product
-POST	/api/products	Create product
-PUT	/api/products/:id	Update product
-DELETE	/api/products/:id	Delete product
-Cart
-Method	Endpoint	Description
-GET	/api/cart	Get current cart
-POST	/api/cart	Add product
-PUT	/api/cart/:id	Update quantity
-DELETE	/api/cart/:id	Remove item
-Orders
-Method	Endpoint	Description
-POST	/api/orders	Create order
-GET	/api/orders	Get user orders
-GET	/api/orders/:id	Get order
-PUT	/api/orders/:id/status	Update order status
-🗄️ Database
-
-Main entities:
-
-User
- │
- ├── Orders
- │
- └── Cart
-
-Product
- │
- ├── Category
- │
- └── OrderItem
-
-Order
- │
- └── OrderItems
-
-User
-id
-name
-email
-password
-role
-createdAt
-updatedAt
-
-Product
-id
-name
-description
-price
-stock
-image
-categoryId
-createdAt
-updatedAt
-
-Order
-id
-userId
-totalAmount
-status
-shippingAddress
-createdAt
-updatedAt
-
-🧪 Testing
-
-Run backend tests:
-
-cd server
-npm test
-
-
-Run tests with coverage:
-
-npm run test:coverage
-
-🐳 Docker
-
-Start the complete development environment:
+Prefer Docker?
 
 docker compose up
 
 
-Stop containers:
+To stop the containers:
 
 docker compose down
 
+🧪 Testing
+
+Run the backend test suite:
+
+cd server
+
+npm test
+
+
+Run with coverage:
+
+npm run test:coverage
+
+
+Current test areas include:
+
+Authentication
+
+Product API
+
+Cart operations
+
+Order creation
+
+Authorization
+
 🗺️ Roadmap
-Phase 1 — Foundation
+✅ Completed
 
- Project structure
+ Project setup
 
- Database setup
+ Database architecture
 
- Authentication
+ User authentication
 
  Product API
 
- Basic product UI
-
-Phase 2 — Shopping
+ Product catalog
 
  Shopping cart
 
- Checkout flow
-
  Order creation
 
- Payment integration
+ Order history
 
- Product reviews
-
-Phase 3 — Administration
-
- Admin authentication
+🚧 In Progress
 
  Admin dashboard
 
  Inventory management
 
- Sales analytics
+ Product reviews
 
- User management
+ Improved analytics
 
-Phase 4 — Production
+🔮 Planned
 
- Image storage
+ Payment integration
 
  Email notifications
 
- Payment gateway
+ Wishlist
 
- CI/CD
+ Discount / coupon system
+
+ Product recommendations
+
+ Image optimization
+
+ CI/CD pipeline
 
  Production deployment
 
 🔒 Security
 
-ShopStack follows several basic security practices:
+ShopStack includes:
 
 Password hashing with bcrypt
 
 JWT authentication
 
-Protected API routes
+Protected API endpoints
 
 Role-based authorization
 
 Input validation
 
-Environment-based secrets
+Environment-based configuration
 
-Centralized error handling
+Centralized API error handling
 
-Never commit .env files or production secrets.
+Never commit .env files or production secrets to the repository.
 
 🤝 Contributing
 
-Fork the repository.
+Contributions are welcome.
 
-Create a feature branch.
-
+# Create a branch
 git checkout -b feature/product-reviews
 
-
-Make your changes.
-
-Run the tests.
-
+# Make your changes
+# Run tests
 npm test
 
-
-Commit your changes.
-
+# Commit
 git commit -m "feat: add product reviews"
 
-
-Push your branch.
-
+# Push
 git push origin feature/product-reviews
 
 
-Open a pull request.
+Then open a pull request.
+
+📌 Project Status
+Frontend       ███████████████░░░  80%
+Backend        █████████████████░  90%
+Authentication ██████████████████ 100%
+Cart           ██████████████████ 100%
+Orders         ████████████████░░  85%
+Admin          ██████████░░░░░░░░  55%
+Testing        ████████████░░░░░░  65%
+
+
+ShopStack is currently under active development.
 
 📄 License
 
-This project is available under the MIT License.
+This project is licensed under the MIT License.
 
-👨‍💻 Author
-
-ShopStack Team
-
-Built as a full-stack e-commerce learning and portfolio project.
+<p align="center"> Built with ❤️ using React, Node.js & PostgreSQL </p>
