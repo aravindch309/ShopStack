@@ -1,7 +1,3 @@
-# ShopStack
-Full-stack e-commerce application with products, cart, orders, and admin dashboard.
-
-
 🛒 ShopStack
 
 A modern full-stack e-commerce platform built for managing products, shopping carts, orders, customers, and store administration.
